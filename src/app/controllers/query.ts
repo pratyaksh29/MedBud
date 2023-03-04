@@ -6,7 +6,10 @@ import * as service from "../services/query";
 // prompts -> translator ->[en] -> chatgpt -> [eng] -> translator -> [detected lang] -> answers
 export const postIssue = async (req: Request, res: Response) => {
   const prompt: string = req.body.prompt;
-  // const phNumber: number = req.body.phNumber;
+  const phNumber: number = req.body.phNumber;
+  const user = await service.upsertUser(phNumber);
+
+  // translator part
   const translator = new Translator();
   const question = await translator.translateText(prompt, "en");
 
@@ -21,3 +24,15 @@ export const postIssue = async (req: Request, res: Response) => {
     res.status(500).send(err);
   }
 };
+
+export const getPrompts = async (req: Request, res: Response) => {
+  const phNumber: number = req.body.phNumber;
+  const prompts = await service.fetchPrompts(phNumber);
+
+  try {
+    res.json(prompts);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
+

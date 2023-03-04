@@ -5,6 +5,7 @@ const queries = express();
 
 queries.use(express.json());
 
-queries.post("/" , controllers.postIssue);
+queries.post("/", controllers.postIssue);
+queries.post("/getprompts", controllers.getPrompts);
 
 export default queries;
