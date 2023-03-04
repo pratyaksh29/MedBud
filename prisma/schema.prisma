@@ -11,9 +11,10 @@ datasource db {
 }
 
 model User {
-  id     Int      @id @default(autoincrement())
-  number Int      @unique
-  Prompt Prompt[]
+  id       Int       @id @default(autoincrement())
+  number   Int       @unique
+  Prompt   Prompt[]
+  Location Location?
 }
 
 model Prompt {
@@ -21,4 +22,19 @@ model Prompt {
   prompt String
   user   User   @relation(fields: [userId], references: [id])
   userId Int
+}
+
+model Location {
+  id       Int        @id @default(autoincrement())
+  location String     @unique
+  userId   Int        @unique
+  user     User       @relation(fields: [userId], references: [id])
+  hospital Hospital[]
+}
+
+model Hospital {
+  id       Int        @id @default(autoincrement())
+  name     String
+  Number   BigInt
+  location Location[]
 }
