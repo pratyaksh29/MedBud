@@ -2,7 +2,7 @@ import { PrismaClient, User } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const upsertUser = async (number: number, location: string) => {
+export const upsertUser = async (number: string, location: string) => {
   const user = await prisma.user.upsert({
     where: { number },
     update: {},
@@ -23,7 +23,7 @@ export const upsertUser = async (number: number, location: string) => {
   return user;
 };
 
-export const addPrompt = async (phNumber: number, prompt: string) => {
+export const addPrompt = async (phNumber: string, prompt: string) => {
   return await prisma.prompt.create({
     data: {
       prompt,
@@ -36,7 +36,7 @@ export const addPrompt = async (phNumber: number, prompt: string) => {
   });
 };
 
-export const fetchPrompts = async (phNumber: number) => {
+export const fetchPrompts = async (phNumber: string) => {
   return await prisma.prompt.findMany({
     where: {
       user: {
@@ -46,14 +46,22 @@ export const fetchPrompts = async (phNumber: number) => {
   });
 };
 
-export const fetchLocation = async (phNumber: number) => {
-  return await prisma.location.findFirst({
+export const fetchLocation = async (phNumber: string) => {
+  const number = String(phNumber);
+  const location = await prisma.user.findMany({
     where: {
-      user: {
-        number: phNumber,
+      number: number,
+    },
+    select: {
+      Location: {
+        select: {
+          location: true,
+        },
       },
     },
   });
+
+  return location;
 };
 
 export const nearbyHospital = async (location: string) => {
@@ -71,7 +79,7 @@ export const nearbyHospital = async (location: string) => {
   });
 };
 
-export const emergency = async (phNumber: number) => {
+export const emergency = async (phNumber: string) => {
   const user = await prisma.user.findUnique({
     where: {
       number: phNumber,

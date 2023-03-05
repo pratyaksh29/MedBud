@@ -9,14 +9,23 @@ export const postIssue = async (req: Request, res: Response) => {
   const user = await service.upsertUser(req.body.phNumber, req.body.location);
   const data = await service.addPrompt(req.body.phNumber, req.body.prompt);
   // translator part
-  const translator = new Translator();
-  const question = await translator.translateText(prompt, "en");
+  // const translator = new Translator();
+  // const question = await translator.translateText(prompt, "en");
 
-  const answers = new Answers();
-  const answer = await answers.getAnswer(question.translatedText);
+  // const answers = new Answers();
+  // const answer = await answers.getAnswer(question.translatedText);
 
-  const ans = await translator.translateText(answer, question.detectLang);
+  // const ans = await translator.translateText(answer, question.detectLang);
 
+  const ans = {
+    translatedText:
+      "1. Soak in warm water with Epsom salt or baking soda. 2. Apply a warm compress to the area. 3. Apply a topical ointment. 4. Take over-the-counter pain medication. 5. If symptoms persist, see a doctor for further treatment.",
+    detectLang: "en",
+  };
+  const ans1 = {
+    translatedText: "jknasdkjnasndansdl sknadnasndskna k aknsd lk n",
+    detectLang: "en",
+  };
   try {
     res.json(ans);
   } catch (err) {
@@ -25,7 +34,7 @@ export const postIssue = async (req: Request, res: Response) => {
 };
 
 export const getPrompts = async (req: Request, res: Response) => {
-  const phNumber: number = req.body.phNumber;
+  const phNumber: string = req.body.phNumber;
   const prompts = await service.fetchPrompts(phNumber);
 
   try {
@@ -36,7 +45,7 @@ export const getPrompts = async (req: Request, res: Response) => {
 };
 
 export const getLocations = async (req: Request, res: Response) => {
-  const phNumber: number = req.body.phNumber;
+  const phNumber: string = req.body.phNumber;
   const locations = await service.fetchLocation(phNumber);
   try {
     res.json(locations);
