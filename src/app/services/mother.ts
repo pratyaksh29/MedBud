@@ -6,7 +6,7 @@ export const addMother = async (number: string, natalSupport: boolean) => {
   const mother = await prisma.mother.create({
     data: {
       number,
-      natalSupport,
+      natalSupport, 
       user: {
         connect: { number: number },
       },

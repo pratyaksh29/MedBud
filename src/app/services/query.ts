@@ -29,7 +29,7 @@ export const addPrompt = async (phNumber: string, prompt: string) => {
       prompt,
       user: {
         connect: {
-          number: phNumber,
+          number: phNumber || "9811312590",
         },
       },
     },
@@ -80,7 +80,7 @@ export const nearbyHospital = async (location: string) => {
 };
 
 export const emergency = async (phNumber: string) => {
-  const data = await prisma.user.findUnique({
+  const data = await prisma.user.findFirst({
     where: {
       number: phNumber,
     },

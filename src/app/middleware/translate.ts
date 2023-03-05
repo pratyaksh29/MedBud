@@ -69,6 +69,12 @@ export class Translator {
     const translatedText = response.translations.translatedText;
     return { translatedText, detectLang };
   }
+  public async translateText2(text: string, lang_translate: string) {
+    const detectLang: string = await this.detect(text);
+    const response = await this.translate(text, detectLang, lang_translate);
+    const translatedText = response.translations.translatedText;
+    return translatedText;
+  }
 }
 
 // const main = async () => {

@@ -12,7 +12,7 @@ export class Answers {
       apiKey: this.key,
     });
     const openai = new OpenAIApi(configuration);
-    const prompt: string = `I have ${question}. Give me different ways to self treat it. If my symptoms are too severe then please give the desired solution explain it in 160 characters`;
+    const prompt: string = `I have ${question}. Give me different ways to self treat it. If my symptoms are too severe then please give the desired solution explain it in less than 160 characters`;
 
     const response = await openai.createCompletion({
       model: "text-davinci-003",
@@ -24,11 +24,4 @@ export class Answers {
   };
 }
 
-// test
-// const main = async () => {
-//   const translator = new Answers();
-//   const response = await translator.getAnswer("mera stomach kharab hai");
-//   console.log("🚀 ~ file: translate.ts:76 ~ main ~ response:", response);
-// };
-
-// main();
+// Path: src/app/middleware/twillio.ts
