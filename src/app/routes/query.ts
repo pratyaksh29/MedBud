@@ -7,6 +7,7 @@ queries.use(express.json());
 
 queries.post("/", controllers.postIssue);
 queries.post("/getprompts", controllers.getPrompts);
+queries.post("/language", controllers.getLanguage);
 queries.post("/nearbyHospital", controllers.getNearbyHospital);
 queries.post("/emergency", controllers.emergency);
 // queries.post("/outbreak", controllers.outbreak);

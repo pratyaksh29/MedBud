@@ -11,10 +11,11 @@ datasource db {
 }
 
 model User {
-  id       Int       @id @default(autoincrement())
-  number   String    @unique
-  Prompt   Prompt[]
-  Location Location?
+  id         Int       @id @default(autoincrement())
+  number     String    @unique
+  Prompt     Prompt[]
+  Location   Location? @relation(fields: [locationId], references: [id])
+  locationId Int?
 }
 
 model Prompt {
@@ -27,8 +28,7 @@ model Prompt {
 model Location {
   id       Int        @id @default(autoincrement())
   location String     @unique
-  userId   Int        @unique
-  user     User       @relation(fields: [userId], references: [id])
+  user     User[]
   hospital Hospital[]
 }
 

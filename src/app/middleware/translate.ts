@@ -10,7 +10,7 @@ export class Translator {
     this.HOST = keys.TRANSLATE_HOST;
   }
 
-  private translate = async (text: string, source: string, target: string) => {
+  public translate = async (text: string, source: string, target: string) => {
     const data = {
       q: text,
       source: source,
@@ -38,7 +38,7 @@ export class Translator {
     return response.data;
   };
 
-  private detect = async (text: string) => {
+  public detect = async (text: string) => {
     const data = {
       q: text,
     };

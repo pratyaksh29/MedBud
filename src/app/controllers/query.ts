@@ -72,3 +72,16 @@ export const emergency = async (req: Request, res: Response) => {
     res.status(500).send(err);
   }
 };
+
+export const getLanguage = async (req: Request, res: Response) => {
+  const translator = new Translator();
+  const response = await translator.translateText(
+    req.body.text,
+    req.body.lang_translate
+  );
+  try {
+    res.json(response);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};

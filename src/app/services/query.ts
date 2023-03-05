@@ -80,33 +80,28 @@ export const nearbyHospital = async (location: string) => {
 };
 
 export const emergency = async (phNumber: string) => {
-  const user = await prisma.user.findUnique({
+  const data = await prisma.user.findUnique({
     where: {
       number: phNumber,
     },
-  });
-
-  const queries = await prisma.prompt.findMany({
-    where: {
-      user: {
-        number: phNumber,
-      },
-    },
-  });
-  const location = await prisma.location.findFirst({
-    where: {
-      user: {
-        number: phNumber,
-      },
-    },
     select: {
-      location: true,
-      hospital: {
+      Location: {
         select: {
-          name: true,
+          location: true,
+          hospital: {
+            select: {
+              name: true,
+            },
+          },
+        },
+      },
+      Prompt: {
+        select: {
+          prompt: true,
         },
       },
     },
   });
-  return { user, location, queries };
+
+  return { data };
 };
