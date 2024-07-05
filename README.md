@@ -1,117 +1,43 @@
-[![Issues][issues-shield]][issues-url]
+# Medbud: SMS-Based Hospital Management and Medical Assistance
 
-<!-- PROJECT LOGO -->
-  <h3 align="center">MedBud</h3>
+## Short Explanation
 
-  <p align="center">
-    Saving lives, one text at a time.
-    <br />
-    <a href="https://github.com/"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/csivitu/Template">View Demo</a>
-    ·
-    <a href="https://github.com/csivitu/Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/csivitu/Template/issues">Request Feature</a>
-  </p>
-</p>
+Medbud provides essential SMS-based management and medical assistance to hospitals and patients, particularly targeting populations with limited internet access, such as many rural communities in India.
 
-<!-- TABLE OF CONTENTS -->
+## Project Goals
 
-## Table of Contents
+Medbud's primary goal is to offer assistance to hospitals that lack advanced technology, ensuring seamless healthcare operations through SMS-based interactions. Simultaneously, it aims to help individuals who rely on SMS due to the absence of internet connectivity, ensuring they receive essential healthcare services efficiently.
 
-- [Table of Contents](#table-of-contents)
-- [About The Project](#about-the-project)
-  - [Built With](#built-with)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Roadmap](#roadmap)
-- [Contributing](#contributing)
-- [License](#license)
 
-<!-- ABOUT THE PROJECT -->
+## Tech Stack Used
 
-## About The Project
+The project leverages the following technologies:
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+- **Flutter**: Google's UI toolkit for building natively compiled applications across platforms.
+- **Remix**: A web framework for building production-ready React applications.
+- **Tailwind CSS**: A utility-first CSS framework for building custom designs directly in HTML.
+- **TypeScript**: A superset of JavaScript that adds static types.
+- **Prisma**: A next-generation ORM for building APIs and databases.
+- **PostgreSQL**: An open-source relational database known for reliability and performance.
 
-### Built With
 
-- []()
-- []()
-- []()
+## Features
 
-<!-- GETTING STARTED -->
+### Medical Assistance
 
-## Getting Started
+- **Remote Medical Assistance**: Utilize the Davinci III model for remote medical support.
+  
+### Emergency Services
 
-To get a local copy up and running follow these simple steps.
+- **Emergency Services**: Add and manage emergency services offered by the hospital.
+- **Emergency Contacts**: Maintain emergency contact information.
 
-### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+## Domain of Application
 
-- npm
+Medbud is suitable for various settings where hospitals require management assistance without advanced technological infrastructure.
 
-```sh
-npm install npm@latest -g
-```
+![image](https://github.com/pratyaksh29/MedBud/assets/72778974/738c0765-0f24-4bf9-8b1a-63d43f487b43)
+![image](https://github.com/pratyaksh29/MedBud/assets/72778974/85b3e812-d5c7-4fc3-8e82-88495a664f0f)
 
-### Installation
 
-1. Clone the repo
-
-```sh
-git clone https://github.com/csivitu/Template.git
-```
-
-2. Install NPM packages
-
-```sh
-npm install
-```
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-See the [open issues](https://github.com/csivitu/Template/issues) for a list of proposed features (and known issues).
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'feat: Add some AmazingFeature'`)
-4. Push to the Branch (`git push -u origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-You are requested to follow the contribution guidelines specified in [CONTRIBUTING.md](./CONTRIBUTING.md) while contributing to the project :smile:.
-
-<!-- LICENSE -->
-
-## License
-
-Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information.
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[csivitu-shield]: https://img.shields.io/badge/csivitu-csivitu-blue
-[csivitu-url]: https://csivit.com
-[issues-shield]: https://img.shields.io/github/issues/csivitu/Template.svg?style=flat-square
-[issues-url]: https://github.com/csivitu/Template/issues
